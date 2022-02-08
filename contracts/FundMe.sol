@@ -9,7 +9,7 @@ import "@chainlink/contracts/src/v0.6/interfaces/AggregatorV3Interface.sol";
 import "@chainlink/contracts/src/v0.6/vendor/SafeMathChainlink.sol";
 
 contract FundMe {
-	// safe math library check uint256 for integer overflows
+	// safe math library check uint256 for integer o1verflows
     using SafeMathChainlink for uint256;
      
     //mapping to store which address depositeded how much ETH
