@@ -1,4 +1,4 @@
-from brownie import network, config, accounts, MockV3Aggregator
+from brownie import network, config, accounts, MockV3Aggregator, Wei
 from web3 import Web3
 LOCAL_BLOCKCHAIN_ENVIRONMENTS = ["development", "ganache-local"]
 
@@ -17,6 +17,6 @@ def deploy_mocks():
     print(f"The active network is {network.show_active()}")
     print("Deploying Mocks...")
     if len(MockV3Aggregator) <= 0:
-        MockV3Aggregator.deploy(DECIMALS, Web3.toWei(STARTING_PRICE,"ether"), {"from":get_account()})           # passing constructor values , from account to MockV3Aggregator.sol  //toWei adds 18 decimals
+        MockV3Aggregator.deploy(DECIMALS, STARTING_PRICE), {"from":get_account()})           # passing constructor values , from account to MockV3Aggregator.sol  //toWei adds 18 decimals
     price_feed_address = MockV3Aggregator[-1].address                                     # Getting lattest MockV3Aggregator address
     print("Mocks Deployed")
